@@ -6,7 +6,10 @@ import aiohttp
 from pydub import AudioSegment
 from io import BytesIO
 
-bot = commands.Bot(command_prefix='!')
+intents = discord.Intents.default()
+bot = commands.Bot(command_prefix='!', intents=intents)
+
+#bot = commands.Bot(command_prefix='!')
 
 
 async def preload_audio(url):
