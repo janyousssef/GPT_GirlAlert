@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  gptgirlalert:
+    image: gptgirlalert
+    build:
+      context: .
+      dockerfile: ./Dockerfile
