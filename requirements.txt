@@ -1,4 +1,12 @@
 discord
+<<<<<<< HEAD
 asyncio
 aiohttp
 pydub
+=======
+discord.ext
+asyncio
+aiohttp
+pydub
+io
+>>>>>>> c7daf5ef6707a91d9549cb995155ce01f99eacff
