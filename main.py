@@ -12,28 +12,18 @@ bot = commands.Bot(command_prefix='!', intents=intents)
 
 #bot = commands.Bot(command_prefix='!')
 
-
-async def preload_audio(url):
-    async with aiohttp.ClientSession() as session:
-        async with session.get(url) as resp:
-            data = await resp.read()
-            audio = AudioSegment.from_file("audio.mp3")
-            audio = audio.set_channels(2).set_frame_rate(48000)
-            byte_data = BytesIO()
-            audio.export(byte_data, format="s16le")
-            byte_data.seek(0)
-    return byte_data
-
-
-async def play_sound(voice_client, url, duration):
-    byte_data = await preload_audio(url)
+async def play_sound(voice_client, file_path, duration):
+    audio = AudioSegment.from_file(file_path)
+    audio = audio.set_channels(2).set_frame_rate(48000)
+    byte_data = BytesIO()
+    audio.export(byte_data, format="s16le")
+    byte_data.seek(0)
     voice_client.stop()
     voice_client.play(discord.PCMVolumeTransformer(
         discord.PCMAudio(byte_data)))
     await asyncio.sleep(duration)
     voice_client.stop()
     await voice_client.disconnect()
-
 
 @bot.event
 async def on_voice_state_update(member, before, after):
@@ -46,11 +36,7 @@ async def on_voice_state_update(member, before, after):
                     voice_client = await voice_channel.connect()
                 else:
                     voice_client = voice_channel.guild.voice_client
-                #await play_sound(voice_client, "/audio.mp3", 5.8) # اختاااااه احذري
-                print("hello")
-                await play_sound(voice_client, "https://sndup.net/gbkd/d", 3) #انت بتتكلمي كدا ليه يا مرا
-                print("bye")
-                #await play_sound(voice_client, "https://www.myinstants.com/media/sounds/damaged_coda.mp3", 25) # اسكت
+                await play_sound(voice_client, "audio.mp3", 3)
 
 
 @bot.command()
