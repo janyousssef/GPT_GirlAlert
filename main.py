@@ -17,7 +17,7 @@ async def preload_audio(url):
     async with aiohttp.ClientSession() as session:
         async with session.get(url) as resp:
             data = await resp.read()
-            audio = AudioSegment.from_file(BytesIO(data), format="mp3")
+            audio = AudioSegment.from_file("audio.mp3")
             audio = audio.set_channels(2).set_frame_rate(48000)
             byte_data = BytesIO()
             audio.export(byte_data, format="s16le")
