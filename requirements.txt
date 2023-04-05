@@ -1,5 +1,5 @@
 discord
 asyncio
 aiohttp
-PyNaCl
+PyNaCl==1.5.0
 pydub==0.25.1
