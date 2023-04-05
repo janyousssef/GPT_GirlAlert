@@ -53,5 +53,5 @@ async def on_ready():
 my_secret = os.environ['TOKEN']
 bot.run(my_secret)
 
-#bot.run("MTA5MDA3Njk2MTY5MjQ1OTA0OQ.G_3ghQ.Fe66H-vOCKb2aY-BNzGqyyfJQPx8F8UqhSO0Cs")
+#bot.run("MTA5MDA3Njk2MTY5MjQ1OTA0OQ.GQguNS.woq24S9yTSwhaxPh5mzjBPhxfqL34aUZx1aeDs")
 
