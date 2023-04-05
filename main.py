@@ -49,9 +49,9 @@ async def leave(ctx):
 @bot.event
 async def on_ready():
     print(f'{bot.user} has connected to Discord!')
+    dir_list = os.listdir(".")
+    print("Files and directories in '", ".", "' :")
+    print(dir_list)
     
 my_secret = os.environ['TOKEN']
 bot.run(my_secret)
-
-#bot.run("MTA5MDA3Njk2MTY5MjQ1OTA0OQ.GQguNS.woq24S9yTSwhaxPh5mzjBPhxfqL34aUZx1aeDs")
-
