@@ -10,15 +10,12 @@ import os
 intents = discord.Intents.default()
 bot = commands.Bot(command_prefix='!', intents=intents)
 
-#bot = commands.Bot(command_prefix='!')
-
 async def play_sound(voice_client, file_path, duration):
     audio = AudioSegment.from_file(file_path)
     audio = audio.set_channels(2).set_frame_rate(48000)
     byte_data = BytesIO()
     audio.export(byte_data, format="s16le")
     byte_data.seek(0)
-    print("line 21")
     voice_client.stop()
     voice_client.play(discord.PCMVolumeTransformer(
         discord.PCMAudio(byte_data)))
@@ -37,8 +34,7 @@ async def on_voice_state_update(member, before, after):
                     voice_client = await voice_channel.connect()
                 else:
                     voice_client = voice_channel.guild.voice_client
-                print("playing sound")
-                await play_sound(voice_client, "audio.mp3", 6)
+                await play_sound(voice_client, "audio.mp3", 6)   #play o5taaaaaaaaaaaaah e7zary
 
 
 @bot.command()
@@ -49,9 +45,6 @@ async def leave(ctx):
 @bot.event
 async def on_ready():
     print(f'{bot.user} has connected to Discord!')
-    dir_list = os.listdir(".")
-    print("Files and directories in '", ".", "' :")
-    print(dir_list)
     
 my_secret = os.environ['TOKEN']
 bot.run(my_secret)
