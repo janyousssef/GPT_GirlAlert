@@ -47,7 +47,9 @@ async def on_voice_state_update(member, before, after):
                 else:
                     voice_client = voice_channel.guild.voice_client
                 #await play_sound(voice_client, "/audio.mp3", 5.8) # اختاااااه احذري
+                print("hello")
                 await play_sound(voice_client, "https://sndup.net/gbkd/d", 3) #انت بتتكلمي كدا ليه يا مرا
+                print("bye")
                 #await play_sound(voice_client, "https://www.myinstants.com/media/sounds/damaged_coda.mp3", 25) # اسكت
 
 
