@@ -5,6 +5,7 @@ import asyncio
 import aiohttp
 from pydub import AudioSegment
 from io import BytesIO
+import os
 
 intents = discord.Intents.default()
 bot = commands.Bot(command_prefix='!', intents=intents)
@@ -58,5 +59,9 @@ async def leave(ctx):
 @bot.event
 async def on_ready():
     print(f'{bot.user} has connected to Discord!')
+    
+my_secret = os.environ['TOKEN']
+bot.run(my_secret)
 
-bot.run("MTA5MDA3Njk2MTY5MjQ1OTA0OQ.G_3ghQ.Fe66H-vOCKb2aY-BNzGqyyfJQPx8F8UqhSO0Cs")
+#bot.run("MTA5MDA3Njk2MTY5MjQ1OTA0OQ.G_3ghQ.Fe66H-vOCKb2aY-BNzGqyyfJQPx8F8UqhSO0Cs")
+
