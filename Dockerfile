@@ -1,10 +1,6 @@
 # For more information, please refer to https://aka.ms/vscode-docker-python
 FROM python:3.10-slim
 
-FROM ubuntu:latest
-RUN apt-get update \
-    && apt-get install -y ffmpeg
-
 # Keeps Python from generating .pyc files in the container
 ENV PYTHONDONTWRITEBYTECODE=1
 
@@ -14,6 +10,8 @@ ENV PYTHONUNBUFFERED=1
 # Install pip requirements
 COPY requirements.txt .
 RUN python -m pip install -r requirements.txt
+
+COPY audio.mp3 .
 
 WORKDIR /app
 COPY . /app
