@@ -18,6 +18,7 @@ async def play_sound(voice_client, file_path, duration):
     byte_data = BytesIO()
     audio.export(byte_data, format="s16le")
     byte_data.seek(0)
+    print("line 21")
     voice_client.stop()
     voice_client.play(discord.PCMVolumeTransformer(
         discord.PCMAudio(byte_data)))
