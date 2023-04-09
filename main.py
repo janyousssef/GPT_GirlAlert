@@ -6,6 +6,9 @@ import aiohttp
 from pydub import AudioSegment
 from io import BytesIO
 import os
+from flask import Flask,request
+from apscheduler.schedulers.background import BackgroundScheduler
+import requests
 
 intents = discord.Intents.default()
 bot = commands.Bot(command_prefix='!', intents=intents)
@@ -48,3 +51,23 @@ async def on_ready():
     
 my_secret = os.environ['TOKEN']
 bot.run(my_secret)
+
+
+#---------------------------STAY ALIVE------------------------------
+app = Flask(__name__)
+
+def ping():
+    url = request.host_url
+    try:
+        r = requests.get(url)
+        r.raise_for_status()
+        print('Ping successful!')
+    except Exception as e:
+        print(f'Ping failed: {str(e)}')
+
+scheduler = BackgroundScheduler()
+scheduler.add_job(func=ping, trigger='interval', minutes=5)
+scheduler.start()
+
+if __name__ == '__main__':
+    app.run()
