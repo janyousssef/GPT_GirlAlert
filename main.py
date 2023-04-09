@@ -13,6 +13,9 @@ import socket
 
 #---------------------------STAY ALIVE------------------------------
 app = Flask(__name__)
+@app.route('/')
+def hello_world():
+    return 'صم الصيصي'
 
 def ping():
     try:
@@ -28,9 +31,12 @@ scheduler = BackgroundScheduler()
 scheduler.add_job(func=ping, trigger='interval', minutes=1)
 scheduler.start()
 
+def start_flask_app():
+    app.run()
+
 if __name__ == '__main__':
-    print("running")
-    app.run(host='0.0.0.0')
+    flask_thread = threading.Thread(target=start_flask_app)
+    flask_thread.start()
     
 
 #---------------------------DISCORD------------------------------
