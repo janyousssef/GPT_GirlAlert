@@ -19,7 +19,7 @@ def ping():
     try:
         ip_address = socket.gethostbyname(socket.gethostname())
         domain = f"http://{ip_address}:5000"
-        r = requests.get(url)
+        r = requests.get(domain)
         r.raise_for_status()
         print('Ping successful!')
     except Exception as e:
