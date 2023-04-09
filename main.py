@@ -6,10 +6,11 @@ import aiohttp
 from pydub import AudioSegment
 from io import BytesIO
 import os
-from flask import Flask,request
+from flask import Flask
 from apscheduler.schedulers.background import BackgroundScheduler
 import requests
 import socket
+import threading
 
 #---------------------------STAY ALIVE------------------------------
 app = Flask(__name__)
