@@ -70,5 +70,6 @@ scheduler.add_job(func=ping, trigger='interval', minutes=1)
 scheduler.start()
 
 if __name__ == '__main__':
-    app.run()
     print("running")
+    app.run()
+    
