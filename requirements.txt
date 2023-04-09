@@ -6,3 +6,4 @@ pydub==0.25.1
 flask
 apscheduler
 requests
+socket
