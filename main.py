@@ -33,7 +33,7 @@ scheduler.add_job(func=ping, trigger='interval', minutes=1)
 scheduler.start()
 
 def start_flask_app():
-    app.run()
+    app.run(host='0.0.0.0')
 
 if __name__ == '__main__':
     flask_thread = threading.Thread(target=start_flask_app)
