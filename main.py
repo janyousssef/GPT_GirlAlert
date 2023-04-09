@@ -66,7 +66,7 @@ def ping():
         print(f'Ping failed: {str(e)}')
 
 scheduler = BackgroundScheduler()
-scheduler.add_job(func=ping, trigger='interval', minutes=5)
+scheduler.add_job(func=ping, trigger='interval', minutes=1)
 scheduler.start()
 
 if __name__ == '__main__':
