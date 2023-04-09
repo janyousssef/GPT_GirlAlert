@@ -14,17 +14,13 @@ import threading
 
 #---------------------------STAY ALIVE------------------------------
 app = Flask(__name__)
-@app.route('/')
-def hello_world():
+
+def hello_sisi():
     return 'صم الصيصي'
 
 def ping():
     try:
-        ip_address = socket.gethostbyname(socket.gethostname())
-        domain = f"http://{ip_address}:5000"
-        r = requests.get(domain)
-        r.raise_for_status()
-        print('Ping successful!')
+        hello_sisi()
     except Exception as e:
         print(f'Ping failed: {str(e)}')
 
