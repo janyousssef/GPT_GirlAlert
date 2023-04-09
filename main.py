@@ -15,12 +15,12 @@ import threading
 #---------------------------STAY ALIVE------------------------------
 app = Flask(__name__)
 @app.route('/')
-def hello_sisi():
-    return 'صم الصيصي'
+def hello_world():
+    return 'hello world'
 
 def ping():
     try:
-        hello_sisi()
+        hello_world()
     except Exception as e:
         print(f'Ping failed: {str(e)}')
 
