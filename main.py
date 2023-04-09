@@ -15,7 +15,6 @@ import socket
 app = Flask(__name__)
 
 def ping():
-    url = request.host_url
     try:
         ip_address = socket.gethostbyname(socket.gethostname())
         domain = f"http://{ip_address}:5000"
