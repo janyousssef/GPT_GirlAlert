@@ -28,7 +28,7 @@ scheduler.start()
 
 if __name__ == '__main__':
     print("running")
-    app.run()
+    app.run(host='0.0.0.0')
     
 
 #---------------------------DISCORD------------------------------
@@ -72,8 +72,8 @@ async def leave(ctx):
 async def on_ready():
     print(f'{bot.user} has connected to Discord!')
     
-#my_secret = os.environ['TOKEN']
-#bot.run(my_secret)
+my_secret = os.environ['TOKEN']
+bot.run(my_secret)
 
 
 
