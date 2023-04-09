@@ -14,7 +14,7 @@ import threading
 
 #---------------------------STAY ALIVE------------------------------
 app = Flask(__name__)
-
+@app.route('/')
 def hello_sisi():
     return 'صم الصيصي'
 
