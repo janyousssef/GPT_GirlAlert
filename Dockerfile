@@ -16,6 +16,7 @@ RUN apt-get -y upgrade
 RUN apt-get install -y ffmpeg
 
 COPY audio.mp3 .
+COPY "alo ahmed.mp3" .
 
 WORKDIR /app
 COPY . /app
