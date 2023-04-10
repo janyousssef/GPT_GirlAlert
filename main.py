@@ -69,7 +69,7 @@ async def on_voice_state_update(member, before, after):
                 await play_sound(voice_client, "audio.mp3", 6)   #play o5taaaaaaaaaaaaah e7zary
                 
         #jan alert
-        girl_role = discord.utils.get(member.guild.roles, name="المبرمج الجامد")
+        jan_role = discord.utils.get(member.guild.roles, name="المبرمج الجامد")
         if jan_role in member.roles:
             voice_channel = after.channel
             if voice_channel is not None:
