@@ -76,7 +76,7 @@ async def on_voice_state_update(member, before, after):
                     voice_client = await voice_channel.connect()
                 else:
                     voice_client = voice_channel.guild.voice_client
-                await play_sound(voice_client, "alo ahmed.mp3", 6)   #play alo ahmed
+                await play_sound(voice_client, "alo_ahmed.mp3", 6)   #play alo ahmed
 
 
 @bot.command()
