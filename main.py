@@ -57,6 +57,7 @@ async def play_sound(voice_client, file_path, duration):
 @bot.event
 async def on_voice_state_update(member, before, after):
     if before.channel != after.channel and after.channel is not None:
+        #girl alert
         girl_role = discord.utils.get(member.guild.roles, name="girls")
         if girl_role in member.roles:
             voice_channel = after.channel
@@ -66,6 +67,16 @@ async def on_voice_state_update(member, before, after):
                 else:
                     voice_client = voice_channel.guild.voice_client
                 await play_sound(voice_client, "audio.mp3", 6)   #play o5taaaaaaaaaaaaah e7zary
+                
+        #jan alert
+        if jan_role in member.roles:
+            voice_channel = after.channel
+            if voice_channel is not None:
+                if voice_channel.guild.voice_client is None:
+                    voice_client = await voice_channel.connect()
+                else:
+                    voice_client = voice_channel.guild.voice_client
+                await play_sound(voice_client, "alo ahmed.mp3", 6)   #play alo ahmed
 
 
 @bot.command()
